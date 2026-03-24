@@ -1,0 +1,223 @@
+Standard Use Case 
+Purpose of the Use Case
+Provide a standardized and uniform scenario to evaluate any platform or prototype related to the Panama Canal reservations system.
+This scenario demonstrates:
+System validations under N-07 rules.
+Behavior across different reservation products.
+Handling of critical transactions (changes, cancellations, same date transit, substitution, etc.).
+Integration of Planner–Coordinator–Customer roles.
+Logic for waiting lists, penalties, fees, eligibility, and special statuses.
+Automation of forms, notifications, and approval workflows.
+
+ General Scenario Context
+Example: 
+The customer “MARINE GLOBAL LINES” holds a Regular reservation for vessel MV PACIFIC STAR, southbound to northbound, scheduled to transit on February 20.
+Throughout this use case, realistic events are simulated to evaluate the functionality of each module in daily operations.
+Main Actors
+Customer / Shipping Agent
+Booking Coordinator / Booking Agent
+Planner
+Control Center Supervisor / Booking Supervisor / Planners (OP-CT / OP-CP)
+Billing System
+EVTMS
+Rules Engine – Dynamic Slot Management System (N-07)
+
+Booking options 
+Change Date Request
+Regular Slot
+The customer initiates the request
+The customer submits a request to change their scheduled transit date from February 20 to February 22.
+System validation through the Dynamic Slot Management System
+The system automatically evaluates whether the request can be granted by validating:
+Availability of the slot for the new date,
+Direction compatibility,
+Operational and vessel-specific restrictions,
+Overall impact on the slot allocation, based on the Dynamic Management System, which manages real-time slot distribution and operational constraints.
+Coordinator approval
+If the system validation is successful, the Booking Coordinator is enabled to approve the change directly, ensuring compliance with operational rules.
+Automatic form generation and reservation update
+Once approved, the system automatically generates the Change Date Form for the customer and within the Reservations System. The reservation is updated with the new transit date, and the Dynamic Slot Management System evaluates the released date to determine whether it should be offered through a Special Competition or as a First Come–First Serve (FCFS) slot.
+LoTSA Vessels
+For LoTSA (Long-Term Slot Allocation) reservations, the process includes additional validation steps:
+Notification to validate application
+When the customer submits a change date request, the system automatically sends a notification to the Planner to verify the customer’s eligibility and the conditions under the LoTSA program, different HML and that comply with the rules specify in the N07.
+Workflow to LoTSA Agent
+The Planner reviews the request and, through workflow, forwards it with the approved or rejected reason to the LoTSA Agent together with the system’s considerations and required operational checks.
+LoTSA Agent decision
+The LoTSA Agent reviews the application and approves or rejects the change date request based on contractual rules, restrictions, and availability.
+ITT indicator update
+If the vessel is LoTSA and the change date is approved, the system automatically applies the indicator “In-Transit-Time (ITT) Not Applicable”, according to rule logic for modifications within the LoTSA program.
+Automatic form generation and reservation update
+Once approved, the system automatically generates the Change Date Form for the customer and within the Reservations System. The reservation is updated with the new transit date, and the Dynamic Slot Management System evaluates the released date to determine whether it should be offered through a Special Competition or as a First Come–First Serve (FCFS) slot.
+Daylight Transit 
+Customer submits the Daylight Transit request
+The system only allows the customer to submit a Daylight Transit request when the vessel meets all eligibility parameters defined under the N-07 Notice to Shipping.
+If the vessel does not meet the required criteria, the system blocks the submission and provides the reason.
+The request is registered in the Reservations System under “Pending Transactions”
+Once submitted, the request is automatically stored in the Pending Transactions module, where it awaits review by the Reservations team.
+Coordinator validation supported by the Dynamic Slot Management System
+Before the request can be approved, the system performs automated validations through the Dynamic Slot Management System, confirming:
+Real operational availability
+Vessel mix conditions
+Applicable restrictions
+Compatibility with daylight transit requirements
+After these automated validations, the Booking Coordinator reviews the request and decides whether to approve or reject it.
+Approval and automatic updates across integrated systems
+When the Coordinator approves the Daylight Transit request, the system performs automatic updates across all operational platforms:
+Billing System: Updated to apply the additional Daylight Transit service fee.
+EVTMS: Updated to reflect the applied service and operational details.
+VUMPA: Updated to ensure alignment with transit scheduling requirements.
+Booking System: The reservation is modified to include the approved Daylight Transit service.
+All systems are synchronized in real time to ensure operational consistency and accurate service records.
+Substitution Request (Vessel Change)
+Customer submits the substitution request
+The customer submits a request to substitute the vessel MV PACIFIC STAR with MV ATLANTIC MOON on an existing reservation.
+System validation using the Dynamic Slot Management System
+Before the request can be forwarded for review, the system performs automated validations through the Dynamic Slot Management System, confirming:
+alliance or VSA compliance (when applicable),
+vessel attributes (size, class, and type),
+operational restrictions,
+compatibility with the allocated slot.
+Only if all initial validations pass does the system allow the request to move forward.
+Coordinator review
+The Booking Coordinator reviews the substitution request, considering operational feasibility and the parameters validated by the system.
+Planner validation when required
+If the substitution involves LoTSA, vessels with different restrictions (e.g., HML), or cases that require higher‑level evaluation, the system routes the request to the Planner for additional validation before final approval.
+Reservation update and customer notification
+Once the approval workflow is complete, the system:
+Updates the reservation with the new vessel (MV ATLANTIC MOON),
+Synchronizes the change with the platform’s operational modules, and
+Notifies the customer that the substitution was successfully applied.
+
+Swap Request
+Customer submits the swap request
+The customer submits a request to swap the February 22 transit of one vessel with the transit date of MV OCEAN BREEZE, scheduled for February 25.
+System validation using the Dynamic Slot Management System
+Before the request can proceed, the system automatically validates:
+the maximum allowable difference in days between reservations (less than 21 days),
+alliance or VSA alignment, when applicable,
+segment‑specific swap rules,
+operational feasibility based on the Dynamic Slot Management System.
+Only after these validations pass does the request proceed to the review stage.
+Coordinator review
+The Booking Coordinator reviews the swap request and evaluates its operational viability based on system validations and current slot allocation.
+Planner evaluation when required
+If the swap involves restrictions, special cases (e.g., LoTSA), or vessels with different operational considerations, the system routes the request to the Planner for higher‑level evaluation prior to final authorization.
+Execution of the swap and system updates
+Once the approval workflow is completed:
+the system executes the swap,
+updates both reservations accordingly,
+synchronizes the change with Booking, Billing, EVTMS, and related systems, and
+applies any charges or adjustments associated with the swap.
+The customer is automatically notified once the swap is finalized.
+
+Transit In Advance (TIA)
+System identifies TIA availability
+The system detects operational availability to advance the vessel’s transit to February 20, based on real‑time evaluations performed by the Dynamic Slot Management System, including slot availability, mix of vessels, and operational constraints.
+Customer submits the TIA request
+The vessel MV OCEAN BREEZE submits a Transit In Advance (TIA) request through the Reservations System.
+System eligibility validation
+Before the request moves forward, the system automatically validates eligibility according to the N‑07 Notice to Shipping, ensuring:
+the vessel meets the parameters defined for TIA,
+directional and operational compatibility,
+no conflicting reservations or restrictions,
+compliance with TIA rules based on vessel segment.
+Only eligible vessels may proceed with the request.
+Planner review and approval
+The Planner evaluates the request in their dedicated TIA review screen.
+After verifying operational feasibility, the Planner approves the TIA request.
+Fee application and system updates
+Upon approval:
+The system applies the TIA fee, depending on the vessel’s commercial category,
+LoTSA vessels are exempt from TIA charges,
+the reservation is updated with the new transit date,
+the system synchronizes the update with Billing, EVTMS, VUMPA, and the Booking System.
+The customer receives an automatic notification confirming the approval and updated transit schedule.
+
+Last-Minute Request
+System detects the vessel in Canal waters
+The system identifies that the vessel is already located within Canal waters, making it a potential candidate for the Last-Minute service. This detection is supported by the Dynamic Slot Management System, which monitors real-time vessel positions and operational availability.
+Planner selects Last-Minute candidates
+Based on operational conditions and available Period 3 slots, the Planner accesses the Last-Minute management screen and selects vessels that meet the preliminary eligibility criteria for the service.
+System suggests priority according to configured rules
+The system evaluates all candidate vessels using configurable Last-Minute rules (including participation history, vessel type, segment, and operational considerations).
+It then generates a priority ranking to guide the Planner in determining which customers should receive the service offer first.
+Customer submits the Last-Minute request
+After receiving the offer or notification, the customer formally submits a Last-Minute Service Request through the Reservations System.
+System eligibility validation
+Once submitted, the system automatically validates:
+compliance with Last-Minute rules under the N-07 framework,
+that the vessel meets all operational and segment requirements,
+eligibility based on recent unsuccessful attempts to obtain a reservation in the previous 7 days,
+that the vessel type is allowed for this service (excluding Passenger, Maritime Cluster, and specific exempt categories).
+Only requests passing all validations are forwarded for Planner evaluation.
+Planner adjudicates the Last-Minute slot
+The Planner reviews the system-validated request and adjudicates the Last-Minute slot to the customer, confirming that the vessel can fit operationally within the available timeframe.
+Charge applied according to vessel category
+Upon adjudication, the system applies the Last-Minute service fee, determined by the vessel’s category (Regular, Super, Neo).
+Restrictions prohibit cancellations, swaps, or substitutions for Last-Minute reservations, which the system enforces automatically.
+Same Date Transit (Late Arrival)
+The agent request Late arrival for the transit
+System identifies late arrival
+The system detects that the vessel has arrived after its Required Arrival Time, triggering the late-arrival logic defined in N-07, then Control Center Supervisor approved. This automatic detection ensures compliance with operational rules and initiates the appropriate workflow.
+OP-CT Supervisor review and decision
+The OP-CT Supervisor reviews the late-arrival case and determines whether the vessel qualifies for a Same Date Transit (SDTR) based on operational feasibility.
+The Supervisor may approve or deny the Same Date Transit request.
+Automatic classification as a Forfeit Request
+The case is routed to the pending queue for evaluation by the Control Center Supervisor (OP-CT).
+Due to the agent request same date transit, the system automatically updates the reservation status to “Forfeit Request.”
+Reservation remains BOOKED with SDTR penalty applied
+If the Supervisor approves the Same Date Transit:
+the reservation remains in BOOKED status,
+the system automatically applies the corresponding SDTR penalty,
+the reservation is updated and synchronized with the booking system and related operational platforms.
+Status escalates to Forfeited if the vessel does not arrive
+If the vessel fails to arrive after the penalty has been applied, or does not meet the operational criteria for Same Date Transit, the system automatically updates the reservation status to “Forfeited.”
+This status is then communicated to EVTMS for operational tracking.
+
+Cancellation Transaction
+Customer submits the cancellation request
+The customer initiates a request to cancel the vessel’s reservation through the Reservations System.
+The system ensures that the request complies with the cancellation rules established under the N-07 notice and the reservation product originally acquired (Regular, LoTSA, Auction, etc.).
+System calculates estimated cost and penalty
+Before the request is reviewed, the system automatically calculates:
+the estimated cancellation cost,
+the penalty applicable according to the type of reservation,
+any additional surcharges or conditions associated with timing (e.g., cancellations submitted too close to the Required Arrival Time).
+These calculations are displayed to the Coordinator and, when applicable, to the customer before final approval.
+Coordinator reviews and approves the cancellation
+The Booking Coordinator reviews the cancellation details, validates that the request is operationally acceptable, and either approves or rejects it.
+System-generated validations ensure that all business rules and restrictions were met prior to approval.
+Automatic generation of the cancellation form
+Once the Coordinator approves the transaction, the system automatically generates the Cancellation Form, updates the reservation status, and records the transaction in the operational logs.
+Released slot triggers waiting list evaluation
+After the reservation is cancelled, the system identifies the freed slot and immediately initiates an evaluation process through the Dynamic Slot Management System, which determines whether:
+For LoTSA a customer on the waiting list matches the released slot’s criteria, and
+The slot should be offered automatically or routed for LoTSA Agent review.
+For Regular slot the Dynamic Slot Management System evaluates the released date to determine whether it should be offered through a Special Competition, Auction or as a First Come–First Serve (FCFS) slot.
+This ensures that all available capacity is reassigned efficiently and consistently with operational policies.
+
+Void Transaction
+Trigger event: Customer obtains a new transit slot
+The process begins when the customer secures a new transit slot through a Competition or Auction. This makes one of their previously booked reservations no longer necessary.
+Coordinator identifies the reservation eligible for VOID
+The Booking Coordinator reviews the customer’s active reservations and determines which existing booking should be voided based on operational logic and N-07 rule alignment.
+Only reservations meeting the conditions for administrative voiding may proceed.
+System creates the VOID Request
+After selecting the reservation, the Coordinator updates its status to “VOID Request.”
+The system formally records the request and routes it into the approval workflow for supervisory review.
+Supervisor or Planner evaluates and approves
+A Supervisor or Planner receives the VOID Request in their approval queue.
+They validate:
+that the customer legitimately obtained a new slot,
+that the old reservation is redundant,
+that there are no operational conflicts,
+and that all required evidence is attached.
+Once the evaluation is complete, the Supervisor/Planner approves the VOID transaction.
+Reservation is voided and no charges are applied
+Upon approval, the system:
+updates the reservation to VOID,
+ensures no cancellation or penalty charges are applied, since VOID is an administrative transaction,
+updates Booking, Billing (with zero-charge note), EVTMS and related modules,
+and automatically notifies the customer that the reservation has been voided.
+

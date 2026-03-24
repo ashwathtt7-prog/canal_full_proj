@@ -1,0 +1,57 @@
+Slot Ownership and Price History Scenario
+This document presents a refined and comprehensive scenario demonstrating how slot ownership changes and slot pricing evolves based on vessel category, booking period, substitutions, swaps, cancellations, and reassignments. It also incorporates the official pricing structure for each vessel segment and the rules applied when a slot is reused or reallocated during different booking periods.
+Base Slot Prices by Vessel Category
+Standard Booking Periods:
+Neopanamax: $100,000
+Large (Supers): $50,000
+Small (Regular): $12,000
+
+Period 3 – Auction Window (7 to 2 days):
+Neopanamax: $100,000 (High Demand: $110,000)
+Large (Supers): $55,000
+Small (Regular): $15,000
+
+Additional Rules:
+Substitutions are charged based on the percentage defined in the Maritime Tariff.
+Swaps have a 1% service fee based on the booking fee.
+When a slot is cancelled, the next customer who obtains the slot will be charged the price corresponding to the booking period in which the new assignment occurs.
+Example
+Initial Slot Allocation
+A Neopanamax slot becomes available for March 15 during Period 1A (30–15 days).
+Customer A (OceanLine Corp.) submits a valid booking request and receives the slot.
+Slot Price Applied: $100,000 (standard Neopanamax fee).
+
+Ownership request a Substitution with 6 days
+Customer A requests a substitution to change the booked vessel while retaining the same customer code.
+The system validates vessel category, restrictions, and operational requirements.
+The system applies the percentage fee defined in the Maritime Tariff.
+
+Slot Value: $100,000 + substitution fee as per tariff rules 60% ($60,000).
+3. Cancellation of the Slot with 5 days
+Customer B (after substitution) cancels the slot while still in a standard booking period 80% ($80,000).
+
+According to system rules the slot returns to inventory as Period 3 (7 to 2 days).
+
+ Period 3 (Auction 7 to 2 days)
+In Period 3, slot pricing becomes auction-based, but that based depending on maximum bid and may increase during High Demand days (apply only for Neopanamx).
+Customer C (Global Maritime) Neopanamax Vessel participates in the auction and wins the slot on a High Demand.
+Slot Price Applied: USD 110,000 (Neopanamax High Demand rate) and the higher bid was $250,000.
+This establishes a new historical price for the slot.
+5. Swap During Period 3
+Customer C requests a vessel swap using the newly obtained slot.
+Swaps during Period 3 carry a 1% service fee based on the booking fee.
+Slot Value Update: $250,000 + 1% swap fee ($2500).
+6. Cancellation in Period 3 representing 100% of the booking fee with 4 days and this action generate a New Auction
+Customer C cancels the slot during Period 3 with 4 days and pays $250,000 for the slot, and that slot returning it to the auction period.
+Cancellations in Period 3 reset the price logic; the next customer must pay the new auction price based on demand.
+A new auction is triggered for the released slot.
+7. Final Allocation and Updated Slot History
+Customer D (BlueWave Carriers) participates in the new auction and wins the slot for $180,000.
+Final Price Timeline:
+Customer A: $100,000 + substitution tariff $60,000
+Customer B: Cancellation over 5 days for $80,000 (80%)
+Customer C: Auction winner for $250,000 + then 1% ($2,500) swap fee
+Customer C: Cancellation through 4 days for $250,000 (100%)
+Customer D): $180,000
+Total slot price: $922,500
+This sequence reflects how slot value evolves based on demand, booking period, and the number of times the slot is reused.

@@ -1,0 +1,44 @@
+Daily Slot Configuration 
+The daily slot configuration is determined based on multiple operational variables, including vessel category, direction of transit, applicable restrictions, and the allocation of slots across different operational periods. This structure supports the Dynamic Slot Management System in evaluating availability, vessel mix, and triggering Special Competitions, First Come–First Serve (FCFS) availability when applicable or auction. Additionally, the system can analyze operational movements and considerations inside the booking application to ensure proper slot allocation.
+Slot Distribution by Category and Period
+
+Notes
+Unused slots from one period are carried over to the next period.
+** Period 2 for Neopanamax includes one conditioned slot.
+* An asterisk indicates an applicable period with zero assigned base slots.
+N/A indicates the period does not apply to this vessel category.
+Definitions of Periods and Columns
+Special Period: From 730 to 366 days prior to the requested transit date Exclusivity for Passenger Vessel Allocations.
+Period 1 (90 Days): Slot allocation window beginning 90 days prior to transit.
+LoTSA (≤50 Days): Slots designated for Long-Term Slot Allocation customers equal or less than 50 days in advance.
+Period 1A (30–15 Days): Intermediate window covering 30 to 15 days before transit.
+Period 2 (14–8 Days): Short-term window for final slot allocation; includes one conditioned slot for Neopanamax.
+Subtotal: Total base slots per category before including auction slots.
+Auctions: Category-based slots assigned specifically for auctions.
+TOTAL: Sum of Subtotal + Auctions per vessel category.
+Restrictions by Vessel Category 
+Neopanamax Restrictions
+Maximum of 4 Neopanamax vessels per direction under normal conditions.
+Maximum 1 daylight-restricted (HML) vessel per direction.
+Maximum of 2 LNG vessels per day, depending of the restriction previously assigned in a specific date (1 N/B – 1 S/B ) (2N/B).
+Conditioned slot (Period 2) allowed only for vessels with daylight-restricted (HML) = “C” meeting dimensional limits (LOA, beam, draft).
+Vessels with HML = D or M count as double restriction for LNG and are excluded from certain booking windows. HML = M vessels cannot participate in swaps, Substitution or change date.
+Period 1A prioritizes segments in this order: Full Container → LNG → LPG → Vehicle Carrier/RoRo.
+Supers Restrictions
+Maximum 10 supers per direction under normal conditions.
+Maximum 4 daylight-restricted (HML) supers per direction.
+Combined daylight-restricted vessels cannot exceed 8 per day.
+Maximum 2 slots per customer code per day (auction slots exempt).
+HML = M vessels cannot participate in swaps, Substitution or change date.
+Regular Vessel Restrictions
+Maximum 3 regular vessels per direction under normal conditions.
+Maximum 1 restricted regular vessel per direction (Clear-Cut, Daylight, Daylight-in-the-Cut).
+Maximum total of 2 restricted regular vessels per day.
+
+
+--- TABLE 1 ---
+CATEGORY | Special Period | Period 1 (90 Days) | LoTSA ≤50 Days | Period 1A (30–15 Days) | Period 2 (14–8 Days) | Subtotal | Auctions | TOTAL
+Neopanamax | 1 | * | 3 | 3 | 2** | 9 | 1 | 10
+Supers | 3 | 6 | N/A | N/A | 10 | 19 | 1 | 20
+Regular | 2 | 1 | N/A | N/A | 2 | 5 | 1 | 6
+Total | 6 | 7 | 3 | 2 | 14 | 33 | 3 | 36

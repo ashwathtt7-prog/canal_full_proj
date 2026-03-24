@@ -1,0 +1,9 @@
+from app.routes.auth import router as auth_router
+from app.routes.slots import router as slots_router
+from app.routes.reservations import router as reservations_router
+from app.routes.transactions import router as transactions_router
+from app.routes.competitions import router as competitions_router
+from app.routes.auctions import router as auctions_router
+from app.routes.notifications import router as notifications_router
+from app.routes.dashboard import router as dashboard_router
+from app.routes.mock import router as mock_router

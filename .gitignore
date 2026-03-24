@@ -1,0 +1,21 @@
+# General
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.log
+.env
+
+# Backend (Python)
+backend/__pycache__/
+backend/*.pyc
+backend/venv/
+backend/env/
+backend/.pytest_cache/
+backend/panama_booking.db
+
+# Frontend (Node)
+frontend/node_modules/
+frontend/dist/
+frontend/.npm/
+frontend/.eslintcache

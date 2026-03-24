@@ -1,0 +1,86 @@
+Competition Scenario – Reservations System
+Scenario Objective
+Validate the complete workflow of a Special Competition in the Reservations System, from the automatic generation triggered by the release of a transit slot to the reception of applications, the selection and publication of the winner, and the integration with Billing, VUMPA, and EVTMS.
+Operational Context
+Example: On March 15, a cancellation releases a transit slot in the North–South direction within a period that previously had no availability. This event triggers the automatic creation of a Special Competition. The system generates the list of potential Tie‑Breaker Competitions for the next day’s competition period and notifies the Booking Coordinator for review. Once validated, the information is forwarded to the corresponding agent so the competition can be carried out the following day. Once validated, the system sends a notification to all customers, allowing them to submit their applications within the established timeframe for the corresponding date as indicated in the notification.
+Main Actors
+Reservations System
+Booking Coordinator
+Participating Customers
+Billing System
+VUMPA
+EVTMS
+Preconditions
+System parameters configured to automatically generate Special Competitions when a slot becomes available.
+HML rules and validation criteria applied automatically.
+One slot is available due to cancellation.
+Customers authorized according to configuration parameters.
+Tie-breaker set to Customer Ranking.
+Detailed Scenario Flow
+The system automatically generates Special Competition and notifies the Booking Coordinator for validation.
+Three customers apply, and the system validates HML rules, direction, and parameter criteria.
+The coordinator accesses the consolidated application screen.
+The system recommends a winner based on the configured ranking; the coordinator may accept the recommendation or manually select another candidate.
+The coordinator publishes the winner, and the system automatically rejects all remaining applications.
+The system displays a dedicated screen with the final competition results.
+The system sends reservation information to Billing, VUMPA, and EVTMS for charges and operational updates.
+The Booking Fee and transit window assignment are automatically generated.
+Slot inventory is updated in real time, reflecting available and used slots.
+
+Auction Scenario – Reservations System
+Scenario Objective
+Validate the complete workflow of the Auction process within the Reservations System, ensuring that:
+Available slots are automatically published with full traceability for both the Planner and the Booking Coordinator (Dynamic Slot Manager).
+The system generates complete auction parameters for Planner validation and subsequent publication by the Coordinator.
+Automatic notifications are sent to subscribed customers.
+Bids are managed and validated according to operational rules and the configured auction type.
+A winner is determined and a pre-filled reservation request with origin "Auction" is generated for approval by the Coordinator (Dynamic Slot Manager).
+Integrations with Billing, VUMPA, and EVTMS function correctly.
+Dashboards, KPIs, and waiting lists are updated, and reconciliation and historical records are properly generated.
+
+Operational Context
+Example:
+On February 19, within the Neopanamax (NEO) category, the system detects an available slot resulting from cancellation. The 7-to-2-day period is enabled exclusively for auctions.
+Upon detecting availability, the system performs the following actions:
+Publishes the available slot with complete traceability and operational details, visible to both the Planner and the Coordinator.
+Evaluate operational parameters, vessel mix, and period conditions to propose an optimal configuration.
+Presents the proposal to the Planner, who reviews and validates it through workflow.
+Once approved by the Planner, the system notifies the Coordinator and enables the auction publication action.
+After publication, the system sends notifications to subscribed customers and opens the bidding window according to the configured auction type.
+
+Process Actors
+Reservations System – Auctions Module
+Planner
+Booking Coordinator
+Registered and authorized customers
+Billing
+VUMPA
+EVTMS
+
+Preconditions
+The system automatically displays available slots with full history for both the Planner and Coordinator.
+A period availability screen exists showing requests, restrictions, and direction/category variations.
+The Planner validates system-proposed parameters and enables publication through workflow.
+Automatic email notifications are sent to subscribed customers when an auction opens.
+The auction dashboard shows views, bids, and preliminary amounts.
+The auction type is configured (regular or sealed).
+The system validates bids using mandatory fields and integrations.
+Simultaneous auctions in different categories are allowed.
+Integrations with Billing, VUMPA, and EVTMS are active.
+The analytics dashboard is active and displays performance indicators.
+
+Detailed Scenario Flow
+Automatic detection and publication: The system identifies the February 19 slot and publishes it with full traceability (origin, timestamp, category, direction).
+Parameter generation: The system proposes configuration parameters, which the Planner reviews and adjusts before approval.
+Approval and publication: Once the Planner approves, the Coordinator is enabled to publish the auction.
+Customer notification: The system sends automated emails with auction details and participation instructions.
+Bidding phase: Authorized customers submit offers; the system validates each bid based on rules and required fields.
+Monitoring: The dashboard displays views, number of bids, amounts, and real-time trends. Vessel and customer identities remain hidden until the auction closes.
+Closing and award: The system automatically determines the winner, verifies compliance with operational parameters, and reveals participant information.
+Reservation creation: A pre-filled request with origin "Auction" is generated and sent to Pending Transactions for Coordinator approval.
+Waiting list: Non-winning customers are added to the waiting list and will be notified if a similar slot becomes available.
+Alternative preference: If the winner selected an alternate date, the Coordinator is notified when a matching slot becomes available.
+Simultaneous auctions: The system allows parallel auctions in categories such as Super, NEO, and Regular.
+Integrations: Billing, VUMPA, and EVTMS processes are executed to complete the assignment.
+Reconciliation and history: The system generates automatic reconciliation and enables export of historical data.
+
